@@ -65,6 +65,22 @@ p{
     justify-content: center;
     /* align-content: center; */
 }
+#mainBox3{
+    /* background:#e6e6e6; */
+    width: 70%;
+    height: auto;
+    border-radius: 10px;
+    margin-left: 200px;
+    padding: 30px;
+    /* border: 0px solid black; */
+    /* box-shadow:0 0 40px -10px #000; */
+    /* margin-top: 20px; */
+    margin: auto;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    /* align-content: center; */
+}
 
 #addPizza{
     font-size: 6em;
@@ -101,4 +117,8 @@ p{
 }
 #fulfillmentTimeHeader{
     font-size: 5em;
+}
+
+img{
+    margin-left: 150px;
 }
