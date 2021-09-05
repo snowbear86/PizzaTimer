@@ -76,5 +76,9 @@ buttonAdd.onclick = function(){
 buttonDelete = document.querySelector("#deletePizza");
 buttonDelete.onclick = function(){
     console.log("you clicked to delete a pizza");
-    time -= 60;
+    if (time - 60 > 7*60 ){
+        time -= 60;
+    } else{
+        time = 7*60;
+    }
 }
