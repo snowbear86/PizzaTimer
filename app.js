@@ -5,23 +5,47 @@ const countdownEl = document.getElementById('countdown');
 const fulfillmentTime = document.getElementById('fulfillmentTime');
 console.log(fulfillmentTime.innerHTML);
 setInterval(updateCountdown, 1000);
+var today = new Date();
+
+
+//Current time and fulfillment time calculation:
+function getCurrentHour(){
+
+    var hours = today.getHours();
+    return hours;
+
+}
+
+function getCurrentMinute(){
+    var minutes = today.getMinutes();
+    return minutes;
+}
+
+
+function formatTime(hourMark, minuteMark){
+    if (hourMark >= 12){
+        hourMark -= 12;
+    }
+    if(minuteMark >=60){
+        minuteMark -= 60;
+        hourMark += 1;
+    }
+    if (minuteMark < 10){
+        var todaysTime = hourMark + ':' +'0'+minuteMark;
+    }else{
+        var todaysTime = hourMark + ":" + (minuteMark)
+
+    }
+    // fulfillmentTime.innerHTML = todaysTime;
+    return todaysTime;
+
+}
+
+fulfillmentTime.innerHTML = formatTime(getCurrentHour(), getCurrentMinute()+startingMins)
 
 
 
 function updateCountdown() {
-    //Current time and fulfillment time calculation:
-    var today = new Date()
-    var hours = today.getHours()
-    if (hours >= 12){
-        hours -= 12;
-    }
-    var minutes = today.getMinutes()
-    var todaysTime = hours + ":" + (minutes+7)
-    
-    console.log(todaysTime);
-    fulfillmentTime.innerHTML = todaysTime;
-
-
 
     //calculating the timer
     const mins = Math.floor(time / 60);
@@ -29,18 +53,28 @@ function updateCountdown() {
     secs = secs < 10 ? '0' + secs : secs;
     countdownEl.innerHTML = mins + ':'+ secs;
 
-
-
     if(time > 7*60){
         time--;
     };
 
-    
+    var currentMin = (getCurrentMinute()+mins)
+
+    fulfillmentTime.innerHTML = formatTime(getCurrentHour(), currentMin)
+ 
 }
 
-button = document.querySelector("#addPizza");
-button.onclick = function(){
+buttonAdd = document.querySelector("#addPizza");
+buttonAdd.onclick = function(){
     console.log("you clicked the add pizza button");
     time += 60;
-    todaysTime += 1;
+    
+
+    
+
+}
+
+buttonDelete = document.querySelector("#deletePizza");
+buttonDelete.onclick = function(){
+    console.log("you clicked to delete a pizza");
+    time -= 60;
 }
