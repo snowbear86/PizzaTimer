@@ -55,7 +55,7 @@ function formatTime(hourMark, minuteMark, secondsMark, timerSecs){
         var todaysTime = hourMark + ":" + (minuteMark)
 
     }
-    console.log("Current Secs:", secondsMark, "Timer Secs:", timerSecs)
+    // console.log("Current Secs:", secondsMark, "Timer Secs:", timerSecs)
     // fulfillmentTime.innerHTML = todaysTime;
     return todaysTime;
     
