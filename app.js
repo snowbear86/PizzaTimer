@@ -4,9 +4,15 @@ let time = startingMins * 60;
 const countdownEl = document.getElementById('countdown');
 const fulfillmentTime = document.getElementById('fulfillmentTime');
 console.log(fulfillmentTime.innerHTML);
-setInterval(updateCountdown, 1000);
+
 var today = new Date();
 
+setInterval(updateCountdown, 1000);
+
+
+function setNewDate(){
+    today = new Date()
+}
 
 //Current time and fulfillment time calculation:
 function getCurrentHour(){
@@ -18,26 +24,41 @@ function getCurrentHour(){
 
 function getCurrentMinute(){
     var minutes = today.getMinutes();
+    // console.log("current min", minutes)
     return minutes;
 }
 
+function getCurrentSeconds(){
+    var seconds = today.getSeconds();
+    // console.log("seconds", seconds)
+    return seconds
+}
 
-function formatTime(hourMark, minuteMark){
-    if (hourMark >= 12){
-        hourMark -= 12;
+
+function formatTime(hourMark, minuteMark, secondsMark, timerSecs){
+    
+    if(secondsMark + parseInt(timerSecs) > 60){
+        minuteMark += 1
     }
     if(minuteMark >=60){
         minuteMark -= 60;
         hourMark += 1;
     }
+    if (hourMark >= 12){
+        hourMark -= 12;
+    }
+    
     if (minuteMark < 10){
         var todaysTime = hourMark + ':' +'0'+minuteMark;
-    }else{
+    }
+    else{
         var todaysTime = hourMark + ":" + (minuteMark)
 
     }
+    console.log("Current Secs:", secondsMark, "Timer Secs:", timerSecs)
     // fulfillmentTime.innerHTML = todaysTime;
     return todaysTime;
+    
 
 }
 
@@ -46,7 +67,8 @@ fulfillmentTime.innerHTML = formatTime(getCurrentHour(), getCurrentMinute()+star
 
 
 function updateCountdown() {
-
+    // console.log("testing")
+    setNewDate()
     //calculating the timer
     const mins = Math.floor(time / 60);
     let secs = time % 60;
@@ -58,8 +80,11 @@ function updateCountdown() {
     };
 
     var currentMin = (getCurrentMinute()+mins)
+    var currentSecs = (getCurrentSeconds())
 
-    fulfillmentTime.innerHTML = formatTime(getCurrentHour(), currentMin)
+    fulfillmentTime.innerHTML = formatTime(getCurrentHour(), currentMin, currentSecs, secs)
+    // console.log(currentMin+ ":" + currentSecs)
+    // return fulfillmentTime
  
 }
 
@@ -82,3 +107,5 @@ buttonDelete.onclick = function(){
         time = 7*60;
     }
 }
+
+// updateCountdown()
