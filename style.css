@@ -49,6 +49,59 @@ p{
     margin-top: 20px;
     /* align-content: center; */
 }
+
+#keypad{
+    grid-column: 3;
+    grid-template-rows: 3;
+    background:#e6e6e6;
+    width: 70%;
+    height: auto;
+    border-radius: 10px;
+    margin-left: 200px;
+    padding: 30px;
+    border: 0px solid black;
+    box-shadow:0 0 40px -10px #000;
+    /* margin-top: 20px; */
+    margin: auto;
+    margin-top: 20px;
+    /* align-content: center; */
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border-radius: 2px;
+    gap: 20px;
+}
+
+.key-item{
+    font-family: "Montserrat", sans-serif;
+    background: #d60000;
+    border: 2px solid #a30000;
+    border-color: #a30000;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 6em;
+    padding: 30px;
+    color: white;
+    box-shadow: 10px 10px 0 0 #a30000;
+}
+
+.key-item:active{
+    font-family: "Montserrat", sans-serif;
+    background: #d60000;
+    border: 2px solid #a30000;
+    border-color: #a30000;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 6em;
+    font-weight: 300;
+    padding: 30px;
+    color: white;
+    box-shadow: 0 0 0 0 white;
+}
+
+
 #mainBox2{
     background:#e6e6e6;
     width: 70%;
@@ -88,13 +141,17 @@ p{
     margin: auto;
     font-family: "Montserrat", sans-serif;
     border: 2px solid #a30000;
-    border-radius: 5px;
+    border-radius: 20px;
     background: 0;
     background-color: #d60000;
     color: #ffffff;
     cursor: pointer;
     margin-top: 15px;
     margin-left: 120px;
+    box-shadow: 10px 10px 0 0 #a30000;
+}
+#addPizza:active{
+    box-shadow: 0px 00px 0 0 white;
 }
 #deletePizza{
     font-size: 6em;
@@ -102,14 +159,15 @@ p{
     margin: auto;
     font-family: "Montserrat", sans-serif;
     border: 2px solid #a30000;
-    border-radius: 5px;
+    border-radius: 20px;
     background: 0;
     background-color: #d60000;
     color: #ffffff;
     cursor: pointer;
-    margin-top: 100px;
+    /* margin-top: 100px; */
     margin-left: 70px;
     margin-bottom: 30px;
+    box-shadow: 10px 10px 0 0 #a30000;
 }
 
 #fulfillmentTime{
